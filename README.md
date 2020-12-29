@@ -8,7 +8,17 @@ ASE, openkim
 
 ## openkim building process
 
+1. https://openkim.org/doc/usage/obtaining-models/#source_install to install kim-api-collection-management
+
+2. pip install kimpy
+
+3. pip install git+https://github.com/openkim/kim-python-utils
+
+4. pip install git+https://gitlab.com/ase/ase.git
+
 ## model install
+
+kim-api-collection-management install user (EAM_NN_Johnson_1988_Cu__MO_887933271505_002 or ***)
 
 # workflow
 
