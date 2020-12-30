@@ -56,10 +56,11 @@ for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
             ekin = a.get_kinetic_energy() / len(a)
             v = a.get_volume()
             v_T.append(v)
-            print('Energy per atom: Epot = %.3feV  Ekin = %.3feV (T=%3.0fK)  '
-                'Etot = %.3feV volume = %.3f' % (epot, ekin, ekin / (1.5 * units.kB), epot + ekin, v))
+            if len(v_T) % 50 == 0:
+                print('Energy per atom: Epot = %.3feV  Ekin = %.3feV (T=%3.0fK)  '
+                    'Etot = %.3feV volume = %.3f' % (epot, ekin, ekin / (1.5 * units.kB), epot + ekin, v))
                                 
-        dyn.attach(printenergy, interval=50)
+        dyn.attach(printenergy, interval=1)
         
         # We also want to save the positions of all atoms after every 100th time step.
         traj = Trajectory(f+str(T)+'.traj', 'w', atoms)
