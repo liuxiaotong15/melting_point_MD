@@ -68,5 +68,6 @@ for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
         # Now run the dynamics
         printenergy()
         dyn.run(20000)
-        v_lst.append(v_T[-2000:]/2000)
+        v_lst.append(sum(v_T[-2000:])/2000)
+        print('v_lst', v_lst)
     print(f, v_lst)
