@@ -14,8 +14,7 @@ ASE, openkim ("All models are wrong, but some are useful." George E. P. Box)
 
 3. pip install git+https://github.com/openkim/kim-python-utils
 
-4. pip install git+https://gitlab.com/ase/ase.git
-
+4. pip install ase
 ## model install
 
 kim-api-collection-management install user EAM_NN_Johnson_1988_Cu__MO_887933271505_002 (or ***)
