@@ -8,7 +8,14 @@ from ase.md.nptberendsen import NPTBerendsen
 from ase.io.trajectory import Trajectory
 from ase import units
 
-for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
+# create mode 100644 Li-Sb-Zn/Li/EntryWithCollCode44367.cif
+# create mode 100644 Li-Sb-Zn/Li/EntryWithCollCode44763.cif
+# create mode 100644 Li-Sb-Zn/Sb/EntryWithCollCode9859.cif
+# create mode 100644 Li-Sb-Zn/Zn/EntryWithCollCode52543.cif
+# create mode 100644 Li-Sb-Zn/Zn/EntryWithCollCode64990.cif
+
+# for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
+for f in ['Li/EntryWithCollCode44367.cif', 'Li/EntryWithCollCode44763.cif', 'Sb/EntryWithCollCode9859.cif', 'Zn/EntryWithCollCode52543.cif', 'Zn/EntryWithCollCode64990.cif']:
     v_lst = []
     for T in range(300, 1300, 100):
         v_T = []
@@ -16,7 +23,8 @@ for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
         print(f, T)
         # Set up crystal and calculator
         atoms = read('Li-Sb-Zn/' + f)
-        atoms *= (2, 2, 2)
+        # atoms *= (2, 2, 2) # alloy
+        atoms *= (4, 4, 4) # pure metal
         # calc = KIM("EAM_Dynamo_ErcolessiAdams_1994_Al__MO_123629422045_005")
         calc = KIM("LJ_ElliottAkerson_2015_Universal__MO_959249795837_003")
         atoms.set_calculator(calc)
@@ -63,7 +71,7 @@ for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
         dyn.attach(printenergy, interval=1)
         
         # We also want to save the positions of all atoms after every 100th time step.
-        traj = Trajectory(f+str(T)+'.traj', 'w', atoms)
+        traj = Trajectory(f.replace('/', '')+str(T)+'.traj', 'w', atoms)
         dyn.attach(traj.write, interval=50)
         
         # Now run the dynamics
