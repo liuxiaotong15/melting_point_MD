@@ -17,7 +17,7 @@ from ase import units
 # for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
 for f in ['Li/EntryWithCollCode44367.cif', 'Sb/EntryWithCollCode9859.cif', 'Zn/EntryWithCollCode52543.cif']:
     v_lst = []
-    for T in range(1, 1000, 50):
+    for T in range(1, 1002, 50):
         v_T = []
         print('-' * 100)
         print(f, T)
