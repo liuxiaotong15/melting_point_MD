@@ -15,9 +15,9 @@ from ase import units
 # create mode 100644 Li-Sb-Zn/Zn/EntryWithCollCode64990.cif
 
 # for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
-for f in ['Li/EntryWithCollCode44367.cif', 'Li/EntryWithCollCode44763.cif', 'Sb/EntryWithCollCode9859.cif', 'Zn/EntryWithCollCode52543.cif', 'Zn/EntryWithCollCode64990.cif']:
+for f in ['Li/EntryWithCollCode44367.cif', 'Sb/EntryWithCollCode9859.cif', 'Zn/EntryWithCollCode52543.cif']:
     v_lst = []
-    for T in range(300, 1300, 100):
+    for T in range(1, 1000, 50):
         v_T = []
         print('-' * 100)
         print(f, T)
@@ -76,7 +76,7 @@ for f in ['Li/EntryWithCollCode44367.cif', 'Li/EntryWithCollCode44763.cif', 'Sb/
         
         # Now run the dynamics
         printenergy()
-        dyn.run(20000)
+        dyn.run(40000)
         v_lst.append(sum(v_T[-2000:])/2000)
         print('v_lst', v_lst)
     print(f, v_lst)
