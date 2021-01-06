@@ -15,7 +15,7 @@ from ase import units
 # create mode 100644 Li-Sb-Zn/Zn/EntryWithCollCode64990.cif
 
 # for f in ['Li2SbZn-1.cif',  'Li2SbZn-2.cif',  'LiSbZn-1.cif',  'LiSbZn-2.cif']:
-for f in ['Li/EntryWithCollCode44367.cif', 'Sb/EntryWithCollCode9859.cif', 'Zn/EntryWithCollCode52543.cif']:
+for f in ['Li/EntryWithCollCode44367.cif']:
     v_lst = []
     for T in range(1, 1002, 50):
         v_T = []
@@ -26,7 +26,8 @@ for f in ['Li/EntryWithCollCode44367.cif', 'Sb/EntryWithCollCode9859.cif', 'Zn/E
         # atoms *= (2, 2, 2) # alloy
         atoms *= (4, 4, 4) # pure metal
         # calc = KIM("EAM_Dynamo_ErcolessiAdams_1994_Al__MO_123629422045_005")
-        calc = KIM("LJ_ElliottAkerson_2015_Universal__MO_959249795837_003")
+        # calc = KIM("LJ_ElliottAkerson_2015_Universal__MO_959249795837_003")
+        calc = KIM("SNAP_ZuoChenLi_2019_Li__MO_732106099012_000")
         atoms.set_calculator(calc)
         
         # T = 1500  # Kelvin
